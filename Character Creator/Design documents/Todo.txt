@@ -1,0 +1,12 @@
+﻿Make example pages and add screenshots into examples class page
+
+Explain further basic structure of other pages
+
+Add C# classes
+
+Recreate all pages from the previous project
+
+Update C# code:
+	- Readability
+	- Unclutter code
+	- Standardize code
