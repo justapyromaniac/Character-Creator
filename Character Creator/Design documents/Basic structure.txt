@@ -8,6 +8,14 @@ html
         ├── (Class)-edit.html/
  	    ├── (Class)-index.html/
  	    └── (Class)-view.html/
+
+Adding debug tools
+Just copy paste the following somewhere:
+<!-- Debug tools -->
+<button class="btn btn-info" onclick="cefCustomObject.showDevTools();">Open Chrome Dev Tools</button>
+<button class="btn btn-primary" onclick="cefCustomObject.opencmd();">Open cmd.exe</button>
+<!-- Debug tools -->
+(preferably the footer, example is on the homepage)
  
 Basic page design
 They are sorted according to where they are on the page!
