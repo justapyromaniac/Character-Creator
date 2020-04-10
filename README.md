@@ -1,4 +1,4 @@
-# Character-Creator
+# Character Creator
 A character creator for dnd 5th edition
 
 This will eventually be a desktop app to create a dnd 5th edition character based on the standard rules
