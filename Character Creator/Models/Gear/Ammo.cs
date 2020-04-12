@@ -10,9 +10,12 @@ namespace Character_Creator.Models.Gear
     {
         public int AmmoCount { get; protected set; }
 
-        protected Ammo(string name, double cost, double weight, string type, int ammouCount, int amount = 1) : base(name, cost, weight, type, amount)
+        public string AmmoType { get; protected set; }
+
+        protected Ammo(string name, double cost, double weight, string ammoType, int ammouCount, int amount = 1) : base(name, cost, weight, amount)
         {
             AmmoCount = ammouCount * amount;
+            AmmoType = ammoType;
         }
         public Ammo()
         {
@@ -23,7 +26,7 @@ namespace Character_Creator.Models.Gear
 
         #region "Overridden methods"
 
-        public override List<Equipment> FillEquipmentList()
+        public static List<Equipment> FillEquipmentList()
         {
             List<Equipment> AmmoList = new List<Equipment>
             {
@@ -42,7 +45,7 @@ namespace Character_Creator.Models.Gear
             {
                 if (name == ammo.Name)
                 {
-                    output = new Ammo(ammo.Name, ammo.Cost, ammo.Weight, ammo.Type, ammo.AmmoCount, amount);
+                    output = new Ammo(ammo.Name, ammo.Cost, ammo.Weight, ammo.AmmoType, ammo.AmmoCount, amount);
                 }
             }
             return output;
@@ -53,7 +56,8 @@ namespace Character_Creator.Models.Gear
         public override string ToString()
         {
             StringBuilder output = new StringBuilder();
-            output.AppendLine($"Ammo: {AmmoCount}");
+            output.AppendLine($"Ammo type: {AmmoType}");
+            output.AppendLine($"Ammo count: {AmmoCount}");
             return base.ToString() + output.ToString();
         }
 

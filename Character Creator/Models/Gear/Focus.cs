@@ -8,14 +8,17 @@ namespace Character_Creator.Models.Gear
 {
     public class Focus : Equipment
     {
-        public string Extra { get; private set; }
+        public string Description { get; private set; }
 
         public string Info { get; private set; }
 
-        private Focus(string name, double cost, double weight, string type, string info) : base(name, cost, weight, type)
+        public string FocusType { get; set; }
+
+        private Focus(string name, double cost, double weight, string focusType, string info) : base(name, cost, weight)
         {
-            Extra = "replaces one item for spellcasting that doesn’t have a cost and if the item isn’t consumed by the spell, only one focus can be used";
+            Description = "replaces one item for spellcasting that doesn’t have a cost and if the item isn’t consumed by the spell, only one focus can be used";
             Info = info;
+            FocusType = focusType;
         }
 
         public Focus()
@@ -27,7 +30,7 @@ namespace Character_Creator.Models.Gear
 
         #region "Overridden methods"
 
-        public override List<Equipment> FillEquipmentList()
+        public static List<Equipment> FillEquipmentList()
         {
             List<Equipment> FocusList = new List<Equipment>
             {
@@ -54,7 +57,7 @@ namespace Character_Creator.Models.Gear
             {
                 if (name == focus.Name)
                 {
-                    output = new Focus(focus.Name, focus.Cost, focus.Weight, focus.Type, focus.Info);
+                    output = new Focus(focus.Name, focus.Cost, focus.Weight, focus.FocusType, focus.Info);
                 }
             }
             return output;
@@ -65,8 +68,9 @@ namespace Character_Creator.Models.Gear
         public override string ToString()
         {
             StringBuilder output = new StringBuilder();
+            output.AppendLine($"Type: {FocusType}");
             output.AppendLine($"Focus class: {Info}");
-            output.AppendLine($"{Extra}");
+            output.AppendLine($"{Description}");
             return base.ToString() + output.ToString();
         }
 

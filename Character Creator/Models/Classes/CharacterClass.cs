@@ -11,18 +11,6 @@ namespace Character_Creator.Models.Classes
     public abstract class CharacterClass
     {
         /*
- * This section contains every single enum and dictionary in this class
- * eventually they'll all be private dictionaries used to check inputs for the lists, as those have limited options
- * This means this section will change and be fleshed out more the more child classes of this parent are made
- * None of these will ever be added to the database
-*/
-        #region "Enums and Dictionaries"
-
-        public enum Attribute { Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma }
-
-        #endregion "Enums and Dictionaries"
-
-        /*
          * This section contains every property
          * note that these might change still as I'm far from finished adding child classes
         */
@@ -39,13 +27,13 @@ namespace Character_Creator.Models.Classes
 
         public int BaseHP { get; protected set; }
 
-        public List<string> ArmourProficiencies { get; }
+        public List<Dictionaries.ArmourTypes> ArmourProficiencies { get; }
 
-        public List<string> WeaponProficiencies { get; }
+        public List<Dictionaries.WeaponTypes> WeaponProficiencies { get; }
 
-        public List<string> SkillProficiencies { get; }
+        public List<Dictionaries.SkillTypes> SkillProficiencies { get; }
 
-        public List<Attribute> SavingThrows { get; }
+        public List<Dictionaries.Attributes> SavingThrows { get; }
 
         public List<string> ToolProficiencies { get; }
 
@@ -72,10 +60,10 @@ namespace Character_Creator.Models.Classes
             BaseHP = HitDice.DiceSides();
             ProficiencyBonus = proficiencyBonus;
             Money = money;
-            ArmourProficiencies = new List<string>();
-            WeaponProficiencies = new List<string>();
-            SkillProficiencies = new List<string>();
-            SavingThrows = new List<Attribute>();
+            ArmourProficiencies = new List<Dictionaries.ArmourTypes>();
+            WeaponProficiencies = new List<Dictionaries.WeaponTypes>();
+            SkillProficiencies = new List<Dictionaries.SkillTypes>();
+            SavingThrows = new List<Dictionaries.Attributes>();
             ToolProficiencies = new List<string>();
             EquipmentList = new List<Equipment>();
         }
@@ -109,9 +97,9 @@ namespace Character_Creator.Models.Classes
             if (ArmourProficiencies.Count != 0)
             {
                 output.AppendLine("Armour Proficiencies: ");
-                foreach (string ArmourProficiency in ArmourProficiencies)
+                foreach (Dictionaries.ArmourTypes ArmourProficiency in ArmourProficiencies)
                 {
-                    output.AppendLine($"\t{ArmourProficiency}");
+                    output.AppendLine($"\t{Dictionaries.ArmourProficiencies[ArmourProficiency].Name}");
                 }
             }
             else
@@ -121,14 +109,14 @@ namespace Character_Creator.Models.Classes
             return output.ToString();
         }
 
-        public string FindArmourProficiency(string input)
+        public string FindArmourProficiency(Dictionaries.ArmourTypes input)
         {
             StringBuilder output = new StringBuilder();
             if (ArmourProficiencies.Count != 0)
             {
                 if (ArmourProficiencies.Contains(input))
                 {
-                    foreach (string ArmourProficiency in ArmourProficiencies)
+                    foreach (Dictionaries.ArmourTypes ArmourProficiency in ArmourProficiencies)
                     {
                         if (input == ArmourProficiency)
                         {
@@ -148,7 +136,7 @@ namespace Character_Creator.Models.Classes
             return output.ToString();
         }
 
-        public bool AddArmourProficiency(string input)
+        public bool AddArmourProficiency(Dictionaries.ArmourTypes input)
         {
             if (ArmourProficiencies.Contains(input))
             {
@@ -156,31 +144,17 @@ namespace Character_Creator.Models.Classes
             }
             else
             {
-                if (input == null)
-                {
-                    return false;
-                }
-                else
-                {
-                    ArmourProficiencies.Add(input);
-                    return true;
-                }
+                ArmourProficiencies.Add(input);
+                return true;
             }
         }
 
-        public bool RemoveArmourProficiency(string input)
+        public bool RemoveArmourProficiency(Dictionaries.ArmourTypes input)
         {
             if (ArmourProficiencies.Contains(input))
             {
-                if (input == null)
-                {
-                    return false;
-                }
-                else
-                {
-                    ArmourProficiencies.Remove(input);
-                    return true;
-                }
+                ArmourProficiencies.Remove(input);
+                return true;
             }
             else
             {
@@ -198,9 +172,9 @@ namespace Character_Creator.Models.Classes
             if (WeaponProficiencies.Count != 0)
             {
                 output.AppendLine("Weapon Proficiencies: ");
-                foreach (string WeaponProficiency in WeaponProficiencies)
+                foreach (Dictionaries.WeaponTypes WeaponProficiency in WeaponProficiencies)
                 {
-                    output.AppendLine($"\t{WeaponProficiency}");
+                    output.AppendLine($"\t{Dictionaries.WeaponProficiencies[WeaponProficiency]}");
                 }
             }
             else
@@ -210,14 +184,14 @@ namespace Character_Creator.Models.Classes
             return output.ToString();
         }
 
-        public string FindWeaponProficiency(string input)
+        public string FindWeaponProficiency(Dictionaries.WeaponTypes input)
         {
             StringBuilder output = new StringBuilder();
             if (WeaponProficiencies.Count != 0)
             {
                 if (WeaponProficiencies.Contains(input))
                 {
-                    foreach (string WeaponProficiency in WeaponProficiencies)
+                    foreach (Dictionaries.WeaponTypes WeaponProficiency in WeaponProficiencies)
                     {
                         if (input == WeaponProficiency)
                         {
@@ -237,7 +211,7 @@ namespace Character_Creator.Models.Classes
             return output.ToString();
         }
 
-        public bool AddWeaponProficiency(string input)
+        public bool AddWeaponProficiency(Dictionaries.WeaponTypes input)
         {
             if (WeaponProficiencies.Contains(input))
             {
@@ -245,31 +219,18 @@ namespace Character_Creator.Models.Classes
             }
             else
             {
-                if (input == null)
-                {
-                    return false;
-                }
-                else
-                {
-                    WeaponProficiencies.Add(input);
-                    return true;
-                }
+                WeaponProficiencies.Add(input);
+                return true;
             }
         }
 
-        public bool RemoveWeaponProficiency(string input)
+        public bool RemoveWeaponProficiency(Dictionaries.WeaponTypes input)
         {
             if (WeaponProficiencies.Contains(input))
             {
-                if (input == null)
-                {
-                    return false;
-                }
-                else
-                {
-                    WeaponProficiencies.Remove(input);
-                    return true;
-                }
+
+                WeaponProficiencies.Remove(input);
+                return true;
             }
             else
             {
@@ -287,9 +248,9 @@ namespace Character_Creator.Models.Classes
             if (SkillProficiencies.Count != 0)
             {
                 output.AppendLine("Skill Proficiencies: ");
-                foreach (string SkillProficiency in SkillProficiencies)
+                foreach (Dictionaries.SkillTypes SkillProficiency in SkillProficiencies)
                 {
-                    output.AppendLine($"\n\t{SkillProficiency}");
+                    output.AppendLine($"\n\t{Dictionaries.SkillProficiencies[SkillProficiency]}");
                 }
             }
             else
@@ -299,14 +260,14 @@ namespace Character_Creator.Models.Classes
             return output.ToString();
         }
 
-        public string FindSkillProficiency(string input)
+        public string FindSkillProficiency(Dictionaries.SkillTypes input)
         {
             StringBuilder output = new StringBuilder();
             if (SkillProficiencies.Count != 0)
             {
                 if (SkillProficiencies.Contains(input))
                 {
-                    foreach (string SkillProficiency in SkillProficiencies)
+                    foreach (Dictionaries.SkillTypes SkillProficiency in SkillProficiencies)
                     {
                         if (input == SkillProficiency)
                         {
@@ -326,7 +287,7 @@ namespace Character_Creator.Models.Classes
             return output.ToString();
         }
 
-        public bool AddSkillProficiency(string input)
+        public bool AddSkillProficiency(Dictionaries.SkillTypes input)
         {
             if (SkillProficiencies.Contains(input))
             {
@@ -334,31 +295,17 @@ namespace Character_Creator.Models.Classes
             }
             else
             {
-                if (input == null)
-                {
-                    return false;
-                }
-                else
-                {
-                    SkillProficiencies.Add(input);
-                    return true;
-                }
+                SkillProficiencies.Add(input);
+                return true;
             }
         }
 
-        public bool RemoveSkillProficiency(string input)
+        public bool RemoveSkillProficiency(Dictionaries.SkillTypes input)
         {
             if (SkillProficiencies.Contains(input))
             {
-                if (input == null)
-                {
-                    return false;
-                }
-                else
-                {
-                    SkillProficiencies.Remove(input);
-                    return true;
-                }
+                SkillProficiencies.Remove(input);
+                return true;
             }
             else
             {
@@ -376,9 +323,9 @@ namespace Character_Creator.Models.Classes
             if (SavingThrows.Count != 0)
             {
                 output.AppendLine("Saving throws: ");
-                foreach (Attribute SavingThrow in SavingThrows)
+                foreach (Dictionaries.Attributes SavingThrow in SavingThrows)
                 {
-                    output.AppendLine($"\t{SavingThrow.ToString()}");
+                    output.AppendLine($"\t{Dictionaries.AttributesDictionary[SavingThrow].Name}");
                 }
             }
             else
@@ -388,14 +335,14 @@ namespace Character_Creator.Models.Classes
             return output.ToString();
         }
 
-        public string FindSavingThrow(Attribute input)
+        public string FindSavingThrow(Dictionaries.Attributes input)
         {
             StringBuilder output = new StringBuilder();
             if (SavingThrows.Count != 0)
             {
                 if (SavingThrows.Contains(input))
                 {
-                    foreach (Attribute SavingThrow in SavingThrows)
+                    foreach (Dictionaries.Attributes SavingThrow in SavingThrows)
                     {
                         if (input == SavingThrow)
                         {
@@ -415,7 +362,7 @@ namespace Character_Creator.Models.Classes
             return output.ToString();
         }
 
-        public bool AddSavingThrow(Attribute input)
+        public bool AddSavingThrow(Dictionaries.Attributes input)
         {
             if (SavingThrows.Contains(input))
             {
@@ -428,7 +375,7 @@ namespace Character_Creator.Models.Classes
             }
         }
 
-        public bool RemoveSavingThrow(Attribute input)
+        public bool RemoveSavingThrow(Dictionaries.Attributes input)
         {
             if (SavingThrows.Contains(input))
             {

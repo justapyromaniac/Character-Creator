@@ -9,6 +9,8 @@ namespace Character_Creator.Models.Gear
 {
     public abstract class Equipment
     {
+        public enum EquipmentTypes { Armour, Ammo, Focus, ItemContainer, Tool, Utility, Weapon }
+
         #region "Properties"
 
         public string Name { get; protected set; }
@@ -17,21 +19,18 @@ namespace Character_Creator.Models.Gear
 
         public double Weight { get; protected set; }
 
-        public string Type { get; protected set; }
-
         public int Amount { get; protected set; }
 
         #endregion "Properties"
 
         #region "Constructor"
 
-        public Equipment(string name, double cost, double weight, string type, int amount = 1)
+        public Equipment(string name, double cost, double weight, int amount = 1)
         {
             Name = name;
             Amount = amount;
             Cost = cost * amount;
             Weight = weight * amount;
-            Type = type;
         }
         public Equipment()
         {
@@ -44,73 +43,42 @@ namespace Character_Creator.Models.Gear
 
         #region "Methods GetProperty"
 
-        public List<string> GetNames()
+        public List<string> GetNames(EquipmentTypes type)
         {
             List<string> names = new List<string>();
-            foreach (Equipment Equipment in FillEquipmentList())
+            foreach (Equipment Equipment in GetEquipmentList(type))
             {
                 names.Add(Equipment.Name);
             }
             return names;
         }
 
-        public static List<string> GetEquipmentTypes()
+        public static List<Equipment> GetEquipmentList(EquipmentTypes type)
         {
-            List<string> types = new List<string>
-            {
-                    "Armour",
-                    "Ammo",
-                    "Foci",
-                    "Containers",
-                    "Tools",
-                    "Utilities",
-                    "Weapons"
-            };
-            return types;
-        }
-
-        public static Equipment ToEquipment(string type)
-        {
-            Equipment output = null;
+            List<Equipment> output = new List<Equipment>();
             switch (type)
             {
-                case "Ammo":
-                    {
-                        output = new Ammo();
-                    }
+                case EquipmentTypes.Armour:
+                    output = Armour.FillEquipmentList();
                     break;
-                case "Armour":
-                    {
-                        output = new Armour();
-                    }
+                case EquipmentTypes.Ammo:
+                    Ammo.FillEquipmentList();
                     break;
-                case "Foci":
-                    {
-                        output = new Focus();
-                    }
+                case EquipmentTypes.Focus:
+                    output = Focus.FillEquipmentList();
                     break;
-                case "Containers":
-                    {
-                        output = new ItemContainer();
-                    }
+                case EquipmentTypes.ItemContainer:
+                    output = ItemContainer.FillEquipmentList();
                     break;
-                case "Tools":
-                    {
-                        output = new Tool();
-                    }
+                case EquipmentTypes.Tool:
+                    output = Tool.FillEquipmentList();
                     break;
-                case "Utilities":
-                    {
-                        output = new Utility();
-                    }
+                case EquipmentTypes.Utility:
+                    output = Utility.FillEquipmentList();
                     break;
-                case "Weapons":
-                    {
-                        output = new Weapon();
-                    }
+                case EquipmentTypes.Weapon:
+                    output = Weapon.FillEquipmentList();
                     break;
-                default:
-                    throw new Exception("Please input a valid type of gear");
             }
             return output;
         }
@@ -118,8 +86,6 @@ namespace Character_Creator.Models.Gear
         #endregion "Methods GetProperty"
 
         #region "Abstract methods"
-
-        public abstract List<Equipment> FillEquipmentList();
 
         public abstract Equipment GetEquipment(string name, int amount = 1);
 
@@ -129,7 +95,6 @@ namespace Character_Creator.Models.Gear
         {
             StringBuilder output = new StringBuilder();
             output.AppendLine($"Name: {Name}");
-            output.AppendLine($"Type: {Type}");
             output.AppendLine($"Amount: {Amount}");
             output.AppendLine($"Cost: {CustomConvert.ConvertMoney(Cost)}");
             output.AppendLine($"Weight: {CustomConvert.ConvertWeight(Weight)}");

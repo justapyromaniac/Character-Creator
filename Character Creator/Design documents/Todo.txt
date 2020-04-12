@@ -10,3 +10,12 @@ Update C# code:
 	- Readability
 	- Unclutter code
 	- Standardize code
+
+Make a feature class
+
+Make a proficiency class
+	- Name
+	- Type (Skill, Weapon, Armour, Saving throw, Tool) (Subclasses?)
+	- Description
+	- Possible logic?
+	- Have everything that the proficiency count for in the class of that proficiency for checks

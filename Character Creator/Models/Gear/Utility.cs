@@ -8,9 +8,11 @@ namespace Character_Creator.Models.Gear
 {
     public class Utility : Equipment
     {
-        private Utility(string name, double cost, double weight, string type, int amount = 1) : base(name, cost, weight, type, amount)
-        {
+        public string UtilityType { get; set; }
 
+        private Utility(string name, double cost, double weight, string utilityType, int amount = 1) : base(name, cost, weight, amount)
+        {
+            UtilityType = utilityType;
         }
 
         public Utility()
@@ -22,7 +24,7 @@ namespace Character_Creator.Models.Gear
 
         #region "Overridden methods"
 
-        public override List<Equipment> FillEquipmentList()
+        public static List<Equipment> FillEquipmentList()
         {
             List<Equipment> UtilityList = new List<Equipment>
             {
@@ -110,7 +112,7 @@ namespace Character_Creator.Models.Gear
             {
                 if (name == utility.Name)
                 {
-                    output = new Utility(utility.Name, utility.Cost, utility.Weight, utility.Type, amount);
+                    output = new Utility(utility.Name, utility.Cost, utility.Weight, utility.UtilityType, amount);
                 }
             }
             return output;
@@ -120,7 +122,9 @@ namespace Character_Creator.Models.Gear
 
         public override string ToString()
         {
-            return base.ToString();
+            StringBuilder output = new StringBuilder();
+            output.AppendLine($"Type: {UtilityType}");
+            return base.ToString() + output.ToString();
         }
 
         #endregion "Methods"
