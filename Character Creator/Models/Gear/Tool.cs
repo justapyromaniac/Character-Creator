@@ -9,7 +9,7 @@ namespace Character_Creator.Models.Gear
 {
     public class Tool : Equipment
     {
-        public Dictionaries.ToolTypes ToolType { get; private set; }
+        private Dictionaries.ToolTypes ToolType { get; set; }
 
         public ToolProficiency ToolProficiency { get; private set; }
 
@@ -212,7 +212,7 @@ namespace Character_Creator.Models.Gear
             {
                 if (name == tool.Name)
                 {
-                    output = new Tool(tool.Name, tool.Cost, tool.Weight, tool.ToolType);
+                    output = tool;
                 }
             }
             return output;

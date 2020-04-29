@@ -9,8 +9,6 @@ namespace Character_Creator.Models.Gear
 {
     public class Armour : Equipment
     {
-        public Dictionaries.ArmourTypes ArmourType { get; private set; }
-
         public string Extra { get; private set; }
 
         public string Info { get; private set; }
@@ -19,10 +17,9 @@ namespace Character_Creator.Models.Gear
 
         private Armour(string name, double cost, double weight, Dictionaries.ArmourTypes armourType, string extra, string info) : base(name, cost, weight)
         {
-            ArmourType = armourType;
             Extra = extra;
             Info = info;
-            ArmourProficiency = Dictionaries.ArmourProficiencies[ArmourType];
+            ArmourProficiency = Dictionaries.ArmourProficiencies[armourType];
         }
 
         public Armour()
@@ -62,7 +59,7 @@ namespace Character_Creator.Models.Gear
             {
                 if (name == armour.Name)
                 {
-                    output = new Armour(armour.Name, armour.Cost, armour.Weight, armour.ArmourType, armour.Extra, armour.Info);
+                    output = armour;
                 }
             }
             return output;

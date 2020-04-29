@@ -57,7 +57,7 @@ namespace Character_Creator.Models.Gear
             {
                 if (name == focus.Name)
                 {
-                    output = new Focus(focus.Name, focus.Cost, focus.Weight, focus.FocusType, focus.Info);
+                    output = focus;
                 }
             }
             return output;

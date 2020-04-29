@@ -1,140 +1,152 @@
 ﻿<!DOCTYPE html>
 
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="utf-8" />
-    <title>Home page</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style media="screen">
+    </style>
+    <title>Character creator</title>
     <link href="../css/style.css" rel="stylesheet" />
+    <link href="../Project clarity resources/@clr/ui/clr-ui-dark.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../Project clarity resources/@clr/icons/clr-icons.min.css" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="main_navbar">
-            <a class="navbar-brand" style="color: white;">Character creator</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" asp-page="/Home/Index">Home</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Class
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="Class pages/Barbarian.html">Barbarian</a></li>
-                            <li><a class="dropdown-item" href="Class pages/Bard.html">Bard</a></li>
-                            <li><a class="dropdown-item" href="Class pages/Cleric.html">Cleric</a></li>
-                            <li><a class="dropdown-item" href="Class pages/Druid.html">Druid</a></li>
-                            <li><a class="dropdown-item" href="Class pages/Fighter.html">Fighter</a></li>
-                            <li><a class="dropdown-item" href="Class pages/Monk.html">Monk</a></li>
-                            <li><a class="dropdown-item" href="Class pages/Paladin.html">Paladin</a></li>
-                            <li><a class="dropdown-item" href="Class pages/Ranger.html">Ranger</a></li>
-                            <li><a class="dropdown-item" href="Class pages/Rogue.html">Rogue</a></li>
-                            <li><a class="dropdown-item" href="Class pages/Sorcerer.html">Sorcerer</a></li>
-                            <li><a class="dropdown-item" href="Class pages/Warlock.html">Warlock</a></li>
-                            <li><a class="dropdown-item" href="Class pages/Wizard.html">Wizard</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Race
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="races/DragonBorn.html" id="DragonBorn">Dragonborn</a>
-                            <a class="dropdown-item" href="#">Dwarf</a>
-                            <a class="dropdown-item" href="#">Elf</a>
-                            <a class="dropdown-item" href="#">Gnome</a>
-                            <a class="dropdown-item" href="#">Half-Elf</a>
-                            <a class="dropdown-item" href="#">Half-Orc</a>
-                            <a class="dropdown-item" href="#">Halfling</a>
-                            <a class="dropdown-item" href="#">Human</a>
-                            <a class="dropdown-item" href="#">Tiefling</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Attributes</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Character Info</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Background
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Acolyte</a>
-                            <a class="dropdown-item" href="#">Charlatan</a>
-                            <a class="dropdown-item" href="#">Criminal</a>
-                            <a class="dropdown-item" href="#">Entertainer</a>
-                            <a class="dropdown-item" href="#">Folk Hero</a>
-                            <a class="dropdown-item" href="#">Guild Artisan</a>
-                            <a class="dropdown-item" href="#">Hermit</a>
-                            <a class="dropdown-item" href="#">Noble</a>
-                            <a class="dropdown-item" href="#">Outlander</a>
-                            <a class="dropdown-item" href="#">Sage</a>
-                            <a class="dropdown-item" href="#">Sailor</a>
-                            <a class="dropdown-item" href="#">Soldier</a>
-                            <a class="dropdown-item" href="#">Urchin</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Character</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+    <header class="header header-5">
+        <div class="branding">
+            <span class="title">Character creator</span>
+        </div>
+        <div class="header-nav">
+            <a href="#" class="nav-link nav-text">Home</a>
+            <a href="javascript://" class="nav-link nav-text">Characters</a>
+            <a href="javascript://" class="nav-link nav-text">Rules</a>
+        </div>
+        <div class="header-actions">
+            <a href="javascript://" class="nav-link nav-icon" aria-label="settings">
+                <clr-icon shape="cog"></clr-icon>
+            </a>
+        </div>
     </header>
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-            <h1 class="display-4">Character creator</h1>
-            <p class="lead">This is the new and improved interface of the character creator, right now it doesn't do a thing. it's just pretty but it does have more info</p>
+    <div class="content-container">
+        <div class="clr-row" style="margin-right: 0px;">
+            <nav class="sidenav">
+                <section class="sidenav-content">
+                    <section class="nav-group collapsible">
+                        <input id="Classes" type="checkbox">
+                        <label for="Classes">Classes</label>
+                        <ul class="nav-list">
+                            <li><a class="nav-link">Barbarian</a></li>
+                            <li><a class="nav-link">Bard</a></li>
+                            <li><a class="nav-link">Cleric</a></li>
+                            <li><a class="nav-link">Druid</a></li>
+                            <li><a class="nav-link">Fighter</a></li>
+                            <li><a class="nav-link">Monk</a></li>
+                            <li><a class="nav-link">Paladin</a></li>
+                            <li><a class="nav-link">Ranger</a></li>
+                            <li><a class="nav-link">Rogue</a></li>
+                            <li><a class="nav-link">Sorcerer</a></li>
+                            <li><a class="nav-link">Warlock</a></li>
+                            <li><a class="nav-link">Wizard</a></li>
+                        </ul>
+                    </section>
+                    <section class="nav-group collapsible">
+                        <input id="Races" type="checkbox">
+                        <label for="Races">Races</label>
+                        <ul class="nav-list">
+                            <li><a class="nav-link">Dragonborn</a></li>
+                            <li><a class="nav-link">Dwarf</a></li>
+                            <li><a class="nav-link">Elf</a></li>
+                            <li><a class="nav-link">Gnome</a></li>
+                            <li><a class="nav-link">Half-Elf</a></li>
+                            <li><a class="nav-link">Half-Orc</a></li>
+                            <li><a class="nav-link">Halfling</a></li>
+                            <li><a class="nav-link">Human</a></li>
+                            <li><a class="nav-link">Tiefling</a></li>
+                        </ul>
+                    </section>
+                    <section class="nav-group collapsible">
+                        <input id="Backgrounds" type="checkbox">
+                        <label for="Backgrounds">Backgrounds</label>
+                        <ul class="nav-list">
+                            <li><a class="nav-link">Acolyte</a></li>
+                            <li><a class="nav-link">Charlatan</a></li>
+                            <li><a class="nav-link">Criminal</a></li>
+                            <li><a class="nav-link">Entertainer</a></li>
+                            <li><a class="nav-link">Folk Hero</a></li>
+                            <li><a class="nav-link">Guild Artisan</a></li>
+                            <li><a class="nav-link">Hermit</a></li>
+                            <li><a class="nav-link">Noble</a></li>
+                            <li><a class="nav-link">Outlander</a></li>
+                            <li><a class="nav-link">Sage</a></li>
+                            <li><a class="nav-link">Sailor</a></li>
+                            <li><a class="nav-link">Soldier</a></li>
+                            <li><a class="nav-link">Urchin</a></li>
+                        </ul>
+                    </section>
+                </section>
+            </nav>
+            <div class="clr-col">
+                <div class="clr-row">
+                    <div class="clr-col">
+                        <div class="content-area" style="text-align: center;">
+                            <h1>Character creator</h1>
+                            <p>
+                                This is the new and improved interface of the character creator, right now it doesn't do a thing.
+                                <br>It's just pretty but it does have more info.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!--
+                    Nested grid to keep the sidenav untouched
+                    Three columns per row
+                -->
+                <div class="clr-row">
+                    <div class="clr-col-4">
+                        <div class="card">
+                            <div class="card-block">
+                                <h3 class="card-title">Class</h3>
+                                <p class="card-text">
+                                    Pick the class and customize it to fit your preferences.
+                                    <br>Also pay attention to any info displayed such as the level table and basic info.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clr-col-4">
+                        <div class="card">
+                            <div class="card-block">
+                                <h3 class="card-title">Race</h3>
+                                <p class="card-text">
+                                    Here you pick the general looks of your character in the ways of height, weight, age and the aesthetic of your race.
+                                    <br>Also you'll choose several race specific things to customize it fully. Make sure to read the race info already displayed.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clr-col-4">
+                        <div class="card">
+                            <div class="card-block">
+                                <h3 class="card-title">Attributes</h3>
+                                <p class="card-text">
+                                    These decide your characters ability modifiers during skill checks, attacks as well as your HP.
+                                    <br>Make sure to check what the reccomended attributes for your class are.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End of row, three cards per row -->
+            </div>
         </div>
     </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Class</h5>
-                        <p class="card-text">Your character's class, pick the class and choose a lot of class specific data along the gear. Also pay attention to any info displayed such as the level table and basic info</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Race</h5>
-                        <p class="card-text">Your character's race, here you pick the general looks of your character in the ways of height, weight, age and the aesthetic of your race. Also you'll choose several race specific things to customize it fully. Make sure to read the race info already displayed</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Attributes</h5>
-                        <p class="card-text">The attributes of your character, these decide your characters ability modifiers during skill checks, attacks as well as your HP. Make sure to check what the reccomended attributes for your class are</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <footer class="footer text-muted">
-        <div class="container" style="background-color: black">
-            &copy; 2020 - Character creator
-            <!-- Debug tools -->
-            <button class="btn btn-outline-info" onclick="cefCustomObject.showDevTools();">Open Chrome Dev Tools</button>
-            <button class="btn btn-outline-primary" onclick="cefCustomObject.opencmd();">Open cmd.exe</button>
-            <!-- Debug tools -->
-        </div>
+    <footer class="footer text-muted" style="background-color: black;">
+        &copy; 2020 - Character creator
+        <!-- Debug tools -->
+        <button class="btn btn-outline-info" onclick="cefCustomObject.showDevTools();">Open Chrome Dev Tools</button>
+        <button class="btn btn-outline-primary" onclick="cefCustomObject.opencmd();">Open cmd.exe</button>
+        <!-- Debug tools -->
     </footer>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="../Project clarity resources/@webcomponents/custom-elements/custom-elements.min.js"></script>
+    <script src="../Project clarity resources/@clr/icons/clr-icons.min.js"></script>
     <script src="../js/script.js"></script>
 </body>
 </html>

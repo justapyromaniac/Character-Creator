@@ -1,60 +1,4 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
-
-
-a.navbar-brand {
-    white-space: normal;
-    text-align: center;
-    word-break: break-all;
-}
-
-/* Provide sufficient contrast against white background */
-a {
-    color: #0366d6;
-}
-
-.btn-primary {
-    color: #fff;
-    background-color: #1b6ec2;
-    border-color: #1861ac;
-}
-
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-    color: #fff;
-    background-color: #1b6ec2;
-    border-color: #1861ac;
-}
-
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-    font-size: 14px;
-}
-
-@media (min-width: 768px) {
-    html {
-        font-size: 16px;
-    }
-}
-
-.border-top {
-    border-top: 1px solid #e5e5e5;
-}
-
-.border-bottom {
-    border-bottom: 1px solid #e5e5e5;
-}
-
-.box-shadow {
-    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
-}
-
-button.accept-policy {
-    font-size: 1rem;
-    line-height: inherit;
-}
-
-/* Sticky footer styles
+﻿/* Sticky footer styles
 -------------------------------------------------- */
 html {
     position: relative;
@@ -63,8 +7,8 @@ html {
 
 body {
     /* Margin bottom by footer height */
-    margin-bottom: 60px;
-}
+    padding-bottom: 60px;
+}  
 
 .footer {
     position: absolute;
@@ -73,74 +17,13 @@ body {
     white-space: nowrap;
     line-height: 60px; /* Vertically center the text there */
     background-color: black;
+    text-indent: 40px;
 }
+
+/*General layout
+-------------------------------------------------- */
 
 body {
-    background-color: slategray;
+    background-color: #0F171C;
 }
 
-.dropdown-menu {
-    background-color: #343A40;
-}
-
-.dropdown-item {
-    color: #FFFFFF
-}
-
-.card {
-    background-color: transparent;
-    border-radius: 20px;
-    overflow-y: auto;
-    height: 250px;
-    margin-right: 0px;
-    border: 2px solid black;
-    width: 18rem;
-}
-
-.jumbotron {
-    background-color: transparent;
-}
-
-.list-group-item {
-    background-color: transparent;
-    border-width: 0px;
-}
-
-.dropdown-item {
-    color: white;
-}
-
-.modal {
-    top: 25%;
-    right: 100px;
-    bottom: 35%;
-    left: 0;
-    z-index: 10040;
-    overflow: auto;
-    overflow-y: auto;
-    max-height: 500px;
-}
-
-.card{
-    border: 1px solid black;
-}
-
-select {
-    margin-top: 10px;
-    background-color: transparent;
-    border: 1px solid #343a40;
-    border-radius: 3px;
-}
-
-.GearList {
-    width: 221.9px;
-}
-
-.display {
-    margin: 10px;
-}
-
-.MoneyDisplay {
-    margin-bottom: 10px;
-    width: 221.9px;
-}

@@ -1,4 +1,7 @@
-﻿Make example pages and add screenshots into examples class page
+﻿Further updates moved to trello board!
+
+
+Make example pages and add screenshots into examples class page
 
 Explain further basic structure of other pages
 
@@ -12,6 +15,7 @@ Update C# code:
 	- Standardize code
 
 Make a feature class
+	- Features are extremely complex, so more work is needed
 
 Make a proficiency class
 	- Name
@@ -19,3 +23,58 @@ Make a proficiency class
 	- Description
 	- Possible logic?
 	- Have everything that the proficiency count for in the class of that proficiency for checks
+
+Level class
+	- LevelNumber
+	- Proficiency bonus
+	- List of features
+		- Barbarian
+			- Rage damage
+			- Amount of rages
+		- Bard
+			- Cantrips known (lvl 0 spell)
+			- Spells known
+			- Spell slots per spell level
+		- Cleric
+			- Cantrips known (lvl 0 spell)
+			- Knows all spells (Has to prepare some based on wisdom mod and level)
+			- Spell slots per spell level
+		- Druid
+			- Cantrips known (lvl 0 spell)
+			- Knows all spells (Has to prepare some based on wisdom mod and level)
+			- Spell slots per spell level
+		- Fighter
+			- Nothing
+		- Monk
+			- Martial arts (Dice)
+			- Ki points
+			- Unarmoured movement (bonus)
+		- Paladin
+			- Knows all spells (Has to prepare some based on charisma mod and half the level, minimum one)
+			- Spell slots per spell level
+		- Ranger
+			- Spells known
+			- Spell slots per spell level
+		- Rogue 
+			- Sneak attack (Dice)
+		- Sorcerer
+			- Sorcery points
+			- Cantrips known (lvl 0 spell)
+			- Spells known
+			- Spell slots per spell level
+		- Warlock
+			- Cantrips known (lvl 0 spell)
+			- Spells known
+			- Spell slots
+			- Spell slot level
+			- Eldrich invocations
+		- Wizard
+			- Cantrips known (lvl 0 spell)
+			- Knows all spells (Has to prepare some based on intelligence mod and level)
+			- Spell slots per spell level
+
+- Specialization class
+	- Name
+	- Description
+	- A list of features/Dictionary based on the level when it's available
+

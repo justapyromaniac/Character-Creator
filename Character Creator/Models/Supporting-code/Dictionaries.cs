@@ -11,14 +11,14 @@ namespace Character_Creator.Models.Supporting_code
         //Most <enum, string> dictionaries are placeholders for <enum, object> dictionaries
         public enum Attributes { Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma }
 
-        public static Dictionary<Attributes, Attribute> AttributesDictionary = new Dictionary<Attributes, Attribute>
+        public static Dictionary<Attributes, CharacterAttribute> AttributesDictionary = new Dictionary<Attributes, CharacterAttribute>
         {
-            { Attributes.Strength, new Attribute("Strength", "Strength measures bodily power, athletic training, and the extent to which you can exert raw physical force.", 1) },
-            { Attributes.Dexterity, new Attribute("Dexterity", "Dexterity measures agility, reflexes, and balance.", 1) },
-            { Attributes.Constitution, new Attribute("Constitution", "Constitution measures health, stamina, and vital force.", 1) },
-            { Attributes.Intelligence, new Attribute("Intelligence", "Intelligence measures mental acuity, accuracy of recall, and the ability to reason.", 1) },
-            { Attributes.Wisdom, new Attribute("Wisdom", "Wisdom reflects how attuned you are to the world around you and represents perceptiveness and intuition.", 1 ) },
-            { Attributes.Charisma, new Attribute("Charisma", "Charisma measures your ability to interact effectively with others. It includes such factors as confidence and eloquence, and it can represent a charming or commanding personality.", 1) }
+            { Attributes.Strength, new CharacterAttribute("Strength", "Strength measures bodily power, athletic training, and the extent to which you can exert raw physical force.", 1) },
+            { Attributes.Dexterity, new CharacterAttribute("Dexterity", "Dexterity measures agility, reflexes, and balance.", 1) },
+            { Attributes.Constitution, new CharacterAttribute("Constitution", "Constitution measures health, stamina, and vital force.", 1) },
+            { Attributes.Intelligence, new CharacterAttribute("Intelligence", "Intelligence measures mental acuity, accuracy of recall, and the ability to reason.", 1) },
+            { Attributes.Wisdom, new CharacterAttribute("Wisdom", "Wisdom reflects how attuned you are to the world around you and represents perceptiveness and intuition.", 1 ) },
+            { Attributes.Charisma, new CharacterAttribute("Charisma", "Charisma measures your ability to interact effectively with others. It includes such factors as confidence and eloquence, and it can represent a charming or commanding personality.", 1) }
         };
 
         public enum ArmourTypes { Light, Medium, Heavy, Shield }

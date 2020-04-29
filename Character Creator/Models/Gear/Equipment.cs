@@ -55,14 +55,14 @@ namespace Character_Creator.Models.Gear
 
         public static List<Equipment> GetEquipmentList(EquipmentTypes type)
         {
-            List<Equipment> output = new List<Equipment>();
+            List<Equipment> output = null;
             switch (type)
             {
                 case EquipmentTypes.Armour:
                     output = Armour.FillEquipmentList();
                     break;
                 case EquipmentTypes.Ammo:
-                    Ammo.FillEquipmentList();
+                    output = Ammo.FillEquipmentList();
                     break;
                 case EquipmentTypes.Focus:
                     output = Focus.FillEquipmentList();

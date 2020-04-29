@@ -10,97 +10,48 @@ namespace Character_Creator.Models.Classes
 {
     public class Barbarian : CharacterClass
     {
-        public int Rages { get; protected set; }
-
-        public int RageDamage { get; protected set; }
-
-        public Barbarian(double money) : base("Barbarian", new Dice(1, 12), 2, money)
+        public Barbarian(double money) : base("Barbarian", new Dice(1, 12), money)
         {
-            Rages = 2;
-            RageDamage = 2;
             InitializeBarbarian();
         }
 
-        public Barbarian() : this(0)
+        public Barbarian() : base("Barbarian", new Dice(1, 12))
         {
 
         }
 
         public void InitializeBarbarian()
         {
-            List<Attribute> SavingThrows = new List<Attribute>
+            List<Dictionaries.Attributes> SavingThrows = new List<Dictionaries.Attributes>
             {
-                Attribute.Strength,
-                Attribute.Constitution
+                Dictionaries.Attributes.Strength,
+                Dictionaries.Attributes.Constitution
             };
-            foreach (Attribute SavingThrow in SavingThrows)
+            foreach (Dictionaries.Attributes SavingThrow in SavingThrows)
             {
                 AddSavingThrow(SavingThrow);
             }
 
-            List<string> ArmourProf = new List<string>
+            List<Dictionaries.ArmourTypes> ArmourProf = new List<Dictionaries.ArmourTypes>
             {
-                "Light armour",
-                "Medium armour",
-                "Shields"
+                Dictionaries.ArmourTypes.Light,
+                Dictionaries.ArmourTypes.Medium,
+                Dictionaries.ArmourTypes.Shield
             };
-            foreach (string Proficiency in ArmourProf)
+            foreach (Dictionaries.ArmourTypes Proficiency in ArmourProf)
             {
                 AddArmourProficiency(Proficiency);
             }
 
-            List<string> WeaponProf = new List<string>
+            List<Dictionaries.WeaponTypes> WeaponProf = new List<Dictionaries.WeaponTypes>
             {
-                "Martial",
-                "Simple"
+                Dictionaries.WeaponTypes.Martial,
+                Dictionaries.WeaponTypes.Simple
             };
-            foreach (string Proficiency in WeaponProf)
+            foreach (Dictionaries.WeaponTypes Proficiency in WeaponProf)
             {
                 AddWeaponProficiency(Proficiency);
             }
-        }
-
-        public override string SetFeatures()
-        {
-            var features = new
-            {
-                Features = new[]
-                {
-                    new
-                    {
-                        Name = "Rage",
-                        Description = "Give in to your anger and rip through your enemies while their weapons become nothing but inconveniences",
-                        Info = new[]
-                        {
-                            "You can enter a rage on your turn as a bonus action, if you aren't wearing heavy armour you:",
-                            "Have advantage on strenght checks and strenght saving throws.",
-                            "Add a rage damage bonus when you make a melee attack using strenght according to your level.",
-                            "Have resistance to bludgeoning, piercing and slashing damage.",
-                            "Cannot cast spells.",
-                            "",
-                            "Your rage lasts for 10 rounds. Your rage ends if you:",
-                            "Are knocked unconscious.",
-                            "Haven't attacked a creature or taken damage since your last turn when your turn ends.",
-                            "End it with a bonus action on your turn.",
-                            "",
-                            "You have a maximum amount of times you can rage corresponding with your level, once you reached this limit you need a long rest before you can rage again."
-                        }
-                    },
-                    new
-                    {
-                        Name = "Unarmoured defence",
-                        Description = "There is no armour stronger than your own skin.",
-                        Info = new[]
-                        {
-                            "If you are not wearing armour, your armour class is 10 + your dexterity modifier + your constitution modifier",
-                            "You can use a shield and still gain this benefit"
-                        }
-                    }
-                }
-
-            };
-            string json = JsonConvert.SerializeObject(features);
-            return json;
         }
 
         public override string GetInfo()
@@ -239,53 +190,24 @@ namespace Character_Creator.Models.Classes
             return json;
         }
 
-
-
-
-        public override List<string> GetSkills()
+        public override List<Dictionaries.SkillTypes> GetSkills()
         {
-            List<string> skills =
-                new List<string>
+            List<Dictionaries.SkillTypes> skills =
+                new List<Dictionaries.SkillTypes>
                 {
-                    "Animal Handling",
-                    "Athletics",
-                    "Intimidation",
-                    "Nature",
-                    "Perception",
-                    "Survival"
+                    Dictionaries.SkillTypes.AnimalHandling,
+                    Dictionaries.SkillTypes.Athletics,
+                    Dictionaries.SkillTypes.Intimidation,
+                    Dictionaries.SkillTypes.Nature,
+                    Dictionaries.SkillTypes.Perception,
+                    Dictionaries.SkillTypes.Survival
                 };
             return skills;
         }
 
-        public override string ToString()
-        {
-            return base.ToString() + $"\nRages: {Rages}\nRage damage: +{RageDamage}";
-        }
-
-        public override object[] Rows()
-        {
-            string[] row1 = new string[] { "1", "+2", "Rage, Unarmored Defense", "2", "+2" };
-            string[] row2 = new string[] { "2", "+2", "Reckless Attack, Danger Sense", "2", "+2" };
-            string[] row3 = new string[] { "3", "+2", "Primal Path", "3", "+2" };
-            string[] row4 = new string[] { "4", "+2", "Ability Score Improvement", "3", "+2" };
-            string[] row5 = new string[] { "5", "+3", "Extra Attack, Fast Movement", "3", "+2" };
-            string[] row6 = new string[] { "6", "+3", "Path feature", "4", "+2" };
-            string[] row7 = new string[] { "7", "+3", "Feral instinct", "4", "+2" };
-            string[] row8 = new string[] { "8", "+3", "Ability Score Improvement", "4", "+2" };
-            string[] row9 = new string[] { "9", "+4", "Brutal critical (one use)", "4", "+3" };
-            string[] row10 = new string[] { "10", "+4", "Path feature", "4", "+3" };
-            string[] row11 = new string[] { "11", "+4", "Relentless Rage", "4", "+3" };
-            string[] row12 = new string[] { "12", "+4", "Ability Score Improvement", "5", "+3" };
-            string[] row13 = new string[] { "13", "+5", "Brutal critical (two uses)", "5", "+3" };
-            string[] row14 = new string[] { "14", "+5", "Path feature", "5", "+3" };
-            string[] row15 = new string[] { "15", "+5", "Persistent Rage", "5", "+3" };
-            string[] row16 = new string[] { "16", "+5", "Ability Score Improvement", "5", "+4" };
-            string[] row17 = new string[] { "17", "+6", "Brutal critical (three uses)", "6", "+4" };
-            string[] row18 = new string[] { "18", "+6", "Indomitable Might", "6", "+4" };
-            string[] row19 = new string[] { "19", "+6", "Ability Score Improvement", "6", "+4" };
-            string[] row20 = new string[] { "20", "+6", "Primal Champion", "unlimited", "+4" };
-            object[] rows = new object[] { row1, row2, row3, row4, row5, row6, row7, row8, row9, row10, row11, row12, row13, row14, row15, row16, row17, row18, row19, row20 };
-            return rows;
-        }
+        //public override string ToString()
+        //{
+        //    return base.ToString() + $"\nRages: {ClassLevel.Rages}\nRage damage: +{RageDamage}";
+        //}
     }
 }

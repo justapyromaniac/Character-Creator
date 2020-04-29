@@ -18,7 +18,7 @@ namespace Character_Creator.Models.Gear
             { WeaponRanges.Ranged, "Used to attack a target from further away" }
         };
 
-        public Dictionaries.WeaponTypes WeaponType { get; protected set; }
+        private Dictionaries.WeaponTypes WeaponType { get; set; }
 
         public WeaponRanges Range { get; private set; }
 
@@ -113,7 +113,7 @@ namespace Character_Creator.Models.Gear
         {
             StringBuilder output = new StringBuilder();
             output.AppendLine($"Attacking distance: {RangeExplanation[Range]}");
-            output.AppendLine($"Weapon type/Required proficiency: {Dictionaries.WeaponProficiencies[WeaponType].Name}");
+            output.AppendLine($"Weapon type/Required proficiency: {WeaponProficiency.Name}");
             output.AppendLine($"Weapon damage (for one): {Damage} {DamageType}");
             output.AppendLine($"Weapon info: {Info}");
             return base.ToString() + output.ToString();
